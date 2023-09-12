@@ -6,7 +6,7 @@ const { AuthValidator } = require('../validator/Auth.Validator');
 const router = express.Router();
 
 
-router.get('/registration', Validator(AuthValidator.registration), CatchAsync(AuthController.registration));
-router.get('/login',Validator(AuthValidator.login),CatchAsync(AuthController.login));
+router.post('/registration', Validator(AuthValidator.registration), CatchAsync(AuthController.registration));
+router.post('/login',Validator(AuthValidator.login),CatchAsync(AuthController.login));
 
 module.exports = router

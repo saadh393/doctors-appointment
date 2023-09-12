@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 // Routing
-app.use('/v1', require('./src/router/router'));
+app.use('/v1', require('./router/router'));
 
 // Not Found 
 app.use((req, res, next) => {
@@ -33,17 +33,4 @@ app.use((err, req, res, next) => {
   })
 })
 
-if (process.env.MONGO_URL) {
-  mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => {
-    console.log("Mongoose Is Connected :)")
-    app.listen(4000, () => console.log("Connection established at port 4000"))
-  }).catch(err => {
-    console.error("Mongoose Error")
-    console.error(err)
-  })
-} else {
-  console.log("MONGO_URL is missing in dot env file");
-}
+module.exports = app
