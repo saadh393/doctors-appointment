@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcryptjs')
 
-const userModel = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     require: true
@@ -27,3 +28,31 @@ const userModel = new mongoose.Schema({
     require: true
   }
 })
+
+/**
+ * Check if user exist in Database
+ * @param {string} email - The user's email
+ * @returns {Promise<boolean>}
+ */
+userSchema.statics.ifExist = async function (email) {
+  const user = await this.findOne({ email });
+  return !!user;
+}
+
+/**
+ * Check if password matches the user's password
+ * @param {string} password
+ * @returns {Promise<boolean>}
+ */
+userSchema.methods.isPasswordMatch = async function (password) {
+  const user = this;
+  return await bcrypt.compare(password, user.password);
+}
+
+
+/**
+ * @typedef User
+ * **/
+const User = mongoose.model('User', userSchema)
+
+module.exports = User;
