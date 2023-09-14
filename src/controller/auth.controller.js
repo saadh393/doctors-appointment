@@ -9,4 +9,4 @@ const registration = async (req, res) => {
   res.json(user)
 }
 
-module.exports.AuthController = { login, registration }
+module.exports.AuthController = { login, registration } 
