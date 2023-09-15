@@ -8,5 +8,7 @@ const appointmentSchema = new mongoose.Schema({
   patient_id : {
     type : mongoose.Schema.Types.ObjectId, 
     ref : "User"
-  }
+  }, 
+  duration : Number, 
+  time : Date
 })
