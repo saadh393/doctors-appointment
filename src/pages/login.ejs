@@ -1,0 +1,46 @@
+<%- include('./components/header', {title : "Login" }); %>
+
+  <body>
+    <div class="container grid place-items-center h-full">
+      <div class="w-1/2 mx-auto shadow shadow-xl p-8 rounded-md">
+        <h1 class="text-indigo-500 text-2xl font-bold">Login</h1>
+        <form class="space-y-4 my-4">
+          <div>
+            <label for="firstName">First Name</label>
+            <input type="name" name="firstName" id="firstName" placeholder="Email" />
+          </div>
+
+          <div>
+            <label for="lastName">Last Name</label>
+            <input type="name" name="lastName" id="lastName" placeholder="Email" />
+          </div>
+
+          <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Email" />
+          </div>
+
+          <div>
+            <label for="date_of_birth">Date of Birth</label>
+            <input type="date" name="date_of_birth" id="date_of_birth" placeholder="Email" />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" />
+          </div>
+
+          <div>
+            <label for="user_type">I am a</label>
+            <select name="user_type" id="user_type">
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </body>
+
+  </html>

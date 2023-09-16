@@ -7,7 +7,7 @@ if (process.env.MONGO_URL) {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() => {
-    console.clear()
+    // console.clear()
     console.log("Mongoose Is Connected :)")
     app.listen(4000, () => console.log("Connection established at port 4000"));
 
