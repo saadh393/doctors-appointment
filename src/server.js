@@ -17,14 +17,6 @@ app.use(express.urlencoded({ extended: true }))
 // Routing
 app.use('/v1', require('./router/router'));
 
-// View
-app.set('views', path.join(__dirname, 'pages'));
-app.set('view engine', 'ejs')
-app.use(express.static(path.join(__dirname, '../public')));
-console.log(path.join(__dirname, 'public'))
-
-// View Route 
-app.use('/', require('./router/router'))
 
 // Not Found 
 app.use((req, res, next) => {

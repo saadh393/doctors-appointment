@@ -9,10 +9,14 @@ const doctorSchema = mongoose.Schema({
     type: String,
     require: true
   },
-  active: Boolean,
+  active: {
+    type: Boolean,
+    default: false,
+  },
   password: {
     type: String,
-    require: true
+    require: true,
+    select : false
   },
   date_of_birth: {
     type: String,
@@ -41,7 +45,6 @@ const doctorSchema = mongoose.Schema({
  */
 doctorSchema.statics.ifExist = async function (email) {
   const doctor = await this.findOne({ email });
-  console.log(doctor);
   return !!doctor;
 }
 
@@ -74,10 +77,20 @@ doctorSchema.statics.setActive = async function (id) {
  * @returns {Promise<Doctor|null>} A promise that resolves to the doctor object if found, or null if not found.
  */
 doctorSchema.statics.getDoctor = async function (id) {
-  return await this.findOne({ id: mongoose.ObjectId(id) });
+  return await this.findOne({ _id: id }).select("-__v -_id");
 }
 
 
-const Doctor = mongoose.model('Doctor', doctorSchema);
+/**
+ * Retrieves All doctors who are acctive
+ *
+ * @returns {Promise<Doctor|null>} A promise that resolves to the doctor object if found, or null if not found.
+ */
+doctorSchema.statics.getAllDoctors = async function () {
+  return await this.find({ active: true })
+}
 
-module.exports = Doctor;
+
+const DoctorModel = mongoose.model('Doctor', doctorSchema);
+
+module.exports = DoctorModel;
