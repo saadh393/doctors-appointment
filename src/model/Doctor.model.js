@@ -16,7 +16,7 @@ const doctorSchema = mongoose.Schema({
   password: {
     type: String,
     require: true,
-    select : false
+    select: false
   },
   date_of_birth: {
     type: String,
@@ -55,7 +55,7 @@ doctorSchema.statics.ifExist = async function (email) {
  * @returns {Promise<boolean>} A promise that resolves to true if the doctor is active, or false if not found or not active.
  */
 doctorSchema.statics.isDoctorActive = async function (id) {
-  const doctor = await this.findOne({ id: mongoose.ObjectId(id) })
+  const doctor = await this.findOne({ _id: id })
   return !!doctor.active;
 }
 
@@ -65,8 +65,19 @@ doctorSchema.statics.isDoctorActive = async function (id) {
  * @returns {Promise}
  * **/
 doctorSchema.statics.setActive = async function (id) {
-  const doctor = await this.findOne({ id: mongoose.ObjectId(id) });
+  const doctor = await this.findOne({ _id: id });
   doctor.active = true;
+  return await doctor.save();
+}
+
+/**
+ * Setting Doctor Disable
+ * @param {String} id
+ * @returns {Promise}
+ * **/
+doctorSchema.statics.setInactive = async function (id) {
+  const doctor = await this.findOne({ _id: id });
+  doctor.active = false;
   return await doctor.save();
 }
 
