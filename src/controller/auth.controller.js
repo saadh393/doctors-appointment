@@ -1,9 +1,13 @@
-const User = require("../model/User.model")
+const User = require("../model/User.model");
+const { AuthService } = require("../services/Auth.Service");
 const { doctorService } = require("../services/Doctor.service")
 const { userService } = require("../services/User.Service")
 
-const login = (req, res) => {
-  res.json()
+const login = async (req, res) => {
+  const data = req.body;
+  const user = await AuthService.login(data);
+
+  res.json(user)
 }
 const registration = async (req, res) => {
   if (req.body.user_type === 'doctor') {

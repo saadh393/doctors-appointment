@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: true
+    require: true,
   },
   date_of_birth: {
     type: String,
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
  */
 userSchema.statics.ifExist = async function (email) {
   const user = await this.findOne({ email });
-  return !!user;
+  return user;
 }
 
 /**
@@ -47,6 +47,14 @@ userSchema.statics.ifExist = async function (email) {
 userSchema.methods.isPasswordMatch = async function (password) {
   const user = this;
   return await bcrypt.compare(password, user.password);
+}
+
+userSchema.methods.filterKey = function (...args) {
+  const userObject = this.toObject();
+  args.forEach(arg => {
+    delete userObject[arg];
+  });
+  return userObject;
 }
 
 
