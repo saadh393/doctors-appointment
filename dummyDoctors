@@ -1,0 +1,92 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1980-05-15",
+    "email": "john.doe@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1975-08-20",
+    "email": "alice.smith@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1982-03-10",
+    "email": "michael.johnson@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1978-12-25",
+    "email": "emily.brown@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Wilson",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1985-07-03",
+    "email": "david.wilson@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Linda",
+    "lastName": "Davis",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1976-09-14",
+    "email": "linda.davis@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Robert",
+    "lastName": "Miller",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1987-02-18",
+    "email": "robert.miller@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Taylor",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1979-06-08",
+    "email": "sarah.taylor@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "William",
+    "lastName": "Anderson",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1981-11-30",
+    "email": "william.anderson@example.com",
+    "user_type": "doctor"
+  },
+  {
+    "firstName": "Karen",
+    "lastName": "Moore",
+    "password": "123as123",
+    "repeat_password": "123as123",
+    "date_of_birth": "1983-04-12",
+    "email": "karen.moore@example.com",
+    "user_type": "doctor"
+  }
+]

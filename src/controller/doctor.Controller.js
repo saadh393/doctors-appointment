@@ -26,9 +26,14 @@ const inactive = async (req, res) => {
   res.json({ message: response ? "Operation Successful" : "Something went wrong" });
 };
 
+const update = async (req, res) => {
+
+}
+
 module.exports.DoctorController = {
   profile,
   all,
   active,
   inactive,
+  update
 };

@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const { userType } = require("../config/userType");
 
 const registration = Joi.object({
   firstName: Joi.string().min(3).max(30).required(),
@@ -7,7 +8,7 @@ const registration = Joi.object({
   repeat_password: Joi.ref('password'),
   date_of_birth: Joi.date().required(),
   email: Joi.string().email().required(),
-  user_type: Joi.string().valid("patient", "doctor")
+  user_type: Joi.string().valid(userType.DOCTOR, userType.PATIENT)
 });
 
 const login = Joi.object({

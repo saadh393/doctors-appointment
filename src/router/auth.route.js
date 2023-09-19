@@ -6,7 +6,11 @@ const { AuthValidator } = require('../validator/Auth.Validator');
 const router = express.Router();
 
 
-router.post('/registration', Validator(AuthValidator.registration), CatchAsync(AuthController.registration));
+router.post('/register', Validator(AuthValidator.registration), CatchAsync(AuthController.registration));
+// This login is only for Patients
 router.post('/login',Validator(AuthValidator.login),CatchAsync(AuthController.login));
+
+// This login for Doctor Only
+router.post('/doctor/login',Validator(AuthValidator.login),CatchAsync(AuthController.doctorLogin));
 
 module.exports = router

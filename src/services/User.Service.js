@@ -4,7 +4,8 @@ const createUser = async (userData) => {
   if (await User.ifExist(userData.email)) {
     throw new Error("User already Exist")
   }
-  return await User.create(userData);
+  const user = await User.create(userData);
+  return user.filterKey("password");
 }
 
 

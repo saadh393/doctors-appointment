@@ -1,16 +1,20 @@
 const Doctor = require("../model/Doctor.model");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 const createDoctor = async (doctorData) => {
   if (await Doctor.ifExist(doctorData.email)) {
     throw new Error("Doctor already Exist");
   }
-  return await Doctor.create({
+  const doctor = await Doctor.create({
     ...doctorData,
-    password : await bcrypt.hash(doctorData.password, 10)
-  });
+    password: await bcrypt.hash(doctorData.password, 10)
+  })
+  return doctor.filterKey("password");
 };
 
-module.exports.doctorService = {
-  createDoctor,
+
+
+module.exports.DoctorService = {
+  createDoctor
 };

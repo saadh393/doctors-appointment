@@ -27,10 +27,17 @@ const doctorSchema = mongoose.Schema({
     require: true,
     unique: true,
   },
-  woring_period: {
-    start: Date,
-    end: Date
-  },
+  woring_period: [
+    {
+      day: {
+        type: String,
+        enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+      },
+      start: Date,
+      end: Date
+
+    }
+  ],
   expertise: [String],
   photo: String,
   designation: String
@@ -87,8 +94,8 @@ doctorSchema.statics.setInactive = async function (id) {
  * @param {string} id - The unique identifier of the doctor.
  * @returns {Promise<Doctor|null>} A promise that resolves to the doctor object if found, or null if not found.
  */
-doctorSchema.statics.getDoctor = async function (id) {
-  return await this.findOne({ _id: id }).select("-__v -_id");
+doctorSchema.statics.getDoctor = async function (email) {
+  return await this.findOne({ email }).select("-__v _id");
 }
 
 
@@ -99,6 +106,13 @@ doctorSchema.statics.getDoctor = async function (id) {
  */
 doctorSchema.statics.getAllDoctors = async function () {
   return await this.find({ active: true })
+}
+
+doctorSchema.methods.filterKey = function (...args) {
+  const userObject = this.toObject();
+  args.forEach(arg => delete userObject[arg]);
+  
+  return userObject;
 }
 
 
