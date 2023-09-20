@@ -28,8 +28,8 @@ app.use((req, res, next) => {
 
 // Error handlers
 app.use((err, req, res, next) => {
-  res.json({
-    status: 'error',
+  res.status(400).json({
+    status: 'Bad Request',
     message: err instanceof Array ? err[0].message : err + ""
   })
 })

@@ -13,8 +13,13 @@ const createDoctor = async (doctorData) => {
   return doctor.filterKey("password");
 };
 
+const update = async (user) => {
+
+}
+
 
 
 module.exports.DoctorService = {
-  createDoctor
+  createDoctor, 
+  update
 };

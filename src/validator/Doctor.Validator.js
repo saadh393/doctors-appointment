@@ -22,19 +22,21 @@ const update = Joi.object({
   expertise: Joi.array(),
   photo: Joi.string(),
   designation: Joi.string(),
-  working_period: Joi.object({
-    day: Joi.string().valid(
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday'
-    ).required(),
-    start: Joi.date().timestamp('javascript').required(),
-    end: Joi.date().timestamp('javascript').required(),
-  })
+  working_period: Joi.array().items(
+    Joi.object({
+      day: Joi.string().valid(
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+      ).required(),
+      start: Joi.date().timestamp('javascript').required(),
+      end: Joi.date().timestamp('javascript').required(),
+    })
+  )
 
 })
 

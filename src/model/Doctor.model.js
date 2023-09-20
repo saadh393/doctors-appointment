@@ -27,11 +27,11 @@ const doctorSchema = mongoose.Schema({
     require: true,
     unique: true,
   },
-  woring_period: [
+  working_period: [
     {
       day: {
         type: String,
-        enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       },
       start: Date,
       end: Date
@@ -111,7 +111,7 @@ doctorSchema.statics.getAllDoctors = async function () {
 doctorSchema.methods.filterKey = function (...args) {
   const userObject = this.toObject();
   args.forEach(arg => delete userObject[arg]);
-  
+
   return userObject;
 }
 

@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/register', Validator(AuthValidator.registration), CatchAsync(AuthController.registration));
 // This login is only for Patients
-router.post('/login',Validator(AuthValidator.login),CatchAsync(AuthController.login));
+router.post('/login', Validator(AuthValidator.login) ,CatchAsync(AuthController.login));
 
 // This login for Doctor Only
 router.post('/doctor/login',Validator(AuthValidator.login),CatchAsync(AuthController.doctorLogin));
