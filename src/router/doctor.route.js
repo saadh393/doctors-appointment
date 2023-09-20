@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get('/all', CatchAsync(DoctorController.all))
 
-// router.get('/expertise', CatchAsync(DoctorController.all)) // Todo
+router.get('/expertise', auth(userType.PATIENT), CatchAsync(DoctorController.expertisedDoctor)) // Todo
 router.get('/profile', auth(userType.DOCTOR), CatchAsync(DoctorController.profile))
 
 // Updating Doctors Info, Only Doctor Can Update his Data

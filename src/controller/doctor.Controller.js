@@ -27,14 +27,21 @@ const inactive = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const {  id } = req.headers.user;
+  const { id } = req.headers.user;
   const data = req.body
-  
-  if(data.hasOwnProperty('working_period') && DuplicateChecker(data.working_period)){
+
+  if (data.hasOwnProperty('working_period') && DuplicateChecker(data.working_period)) {
     throw Error("Duplicate Days Entry");
   }
 
   const response = await DoctorModel.updateOne({ _id: id }, { $set: { ...data } });
+  res.json(response)
+}
+
+const expertisedDoctor = async (req, res) => {
+  const {expertise} = req.body;
+
+  const response = await DoctorModel.find({ expertise : expertise });
   res.json(response)
 }
 
@@ -43,5 +50,6 @@ module.exports.DoctorController = {
   all,
   active,
   inactive,
-  update
+  update,
+  expertisedDoctor
 };
