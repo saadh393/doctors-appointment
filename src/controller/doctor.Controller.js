@@ -30,6 +30,7 @@ const update = async (req, res) => {
   const { id } = req.headers.user;
   const data = req.body
 
+  // eslint-disable-next-line no-prototype-builtins
   if (data.hasOwnProperty('working_period') && DuplicateChecker(data.working_period)) {
     throw Error("Duplicate Days Entry");
   }
@@ -39,7 +40,7 @@ const update = async (req, res) => {
 }
 
 const expertisedDoctor = async (req, res) => {
-  const {expertise} = req.body;
+  const { expertise } = req.body;
 
   const response = await DoctorModel.find({ expertise : expertise });
   res.json(response)

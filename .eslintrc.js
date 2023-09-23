@@ -1,25 +1,16 @@
 module.exports = {
-    "env": {
-        "browser": false,
-        "commonjs": true,
-        "es2021": true
-    },
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                ".eslintrc.{js,cjs}"
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            }
-        }
-    ],
+    "root": true,
     "parserOptions": {
-        "ecmaVersion": "latest"
+         "ecmaVersion": 12,
+         "sourceType": "module"
+    },
+    "extends": ["eslint:recommended", "prettier"],
+    "env": { 
+         "es2021": true,
+         "node": true
     },
     "rules": {
+         "no-console": "error",
+         "Object.prototype" : 0
     }
 }

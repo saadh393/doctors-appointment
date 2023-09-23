@@ -18,7 +18,6 @@ const update = Joi.object({
   firstName: Joi.string(),
   lastName: Joi.string(),
   date_of_birth: Joi.string(),
-  firstName: Joi.string(),
   expertise: Joi.array(),
   photo: Joi.string(),
   designation: Joi.string(),
