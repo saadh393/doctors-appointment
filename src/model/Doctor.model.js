@@ -33,7 +33,7 @@ const doctorSchema = mongoose.Schema({
         type: String,
         enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       },
-      start: Date,
+      start: String,
       end: Date
 
     }

@@ -17,9 +17,14 @@ const update = async (user) => {
 
 }
 
+const getDoctorById = async (doctor_id) => {
+  return await Doctor.find({ _id: doctor_id });
+}
+
 
 
 module.exports.DoctorService = {
-  createDoctor, 
-  update
+  createDoctor,
+  update,
+  getDoctorById
 };
