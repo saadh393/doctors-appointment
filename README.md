@@ -12,6 +12,3 @@
   - Cross Check Dates for The Appointments
   - Create Appointment
 
-
-Deploy
-asdf
